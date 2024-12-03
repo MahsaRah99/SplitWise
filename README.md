@@ -1,4 +1,4 @@
-# 💸 Splitwise-like Expense Sharing App 💰
+# 💸 Splitwise-like Expense Sharing Website 💰
 
 Welcome to the **Splitwise-like Expense Sharing App**, a web-based platform to manage group expenses and simplify the process of splitting bills among members. Built with a robust back end in **Django REST** and a dynamic front end powered by **Next.js**, this project aims to deliver an intuitive and efficient expense-sharing experience.
 
