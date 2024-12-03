@@ -1,0 +1,42 @@
+# version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: splitwise_backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: splitwise_frontend
+    volumes:
+      - ./frontend:/usr/src/app
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000/api
+    command: npm run dev
+
+  db:
+    image: postgres:15
+    container_name: splitwise_db
+    restart: on-failure
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - ./backend/.env
+
+volumes:
+  postgres_data:
