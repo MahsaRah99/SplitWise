@@ -73,5 +73,5 @@ Welcome to the **Splitwise-like Expense Sharing App**, a web-based platform to m
      ```
 
 
-###⭐ If you find this project helpful, consider giving it a star on GitHub! ✨
+⭐ If you find this project helpful, consider giving it a star on GitHub! ✨
 Happy coding! 😊
