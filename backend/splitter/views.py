@@ -127,17 +127,3 @@ class GroupFinalizeView(generics.RetrieveAPIView):
         serializer = self.get_serializer(data=request.data, context={"group": group})
         serializer.is_valid(raise_exception=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-
-
-# can't you do this on the Expense table instead?
-#     credited = ParticipantExpense.objects.filter(
-#         expense__group=group,
-#         is_paid=False
-#     ).values('expense__payer').annotate(
-#         total_paid=Sum('amount_owed')
-#     )
-# instead write:
-#     credited = Expense.objects.filter(
-#         group=group,
-#     ).values('payer').annotate(
-#         total_paid=Sum('amount')
